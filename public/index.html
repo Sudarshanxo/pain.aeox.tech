@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="res/adoutme/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Webpage of the User with massive d- heart.!! . aka Prithvi">
+
+    <title>Your Pookie 🎀</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Fullscreen loader styles */
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #caff0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideIn 1.5s ease-out forwards;
+            z-index: 9999;
+        }
+
+        #loader h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: #333;
+            opacity: 0;
+            animation: fadeInText 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body.loaded #loader {
+            animation: fadeOut 1s ease-in forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+        }
+
+        .content {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        body.loaded .content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #caff0a 100%); 
+            background-image: url('res/adoutme/b.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            transition: background 0.5s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); 
+            transition: background-color 0.3s ease;
+        }
+
+        .logo img {
+            width: auto;
+            height: 100px; 
+            aspect-ratio: 16 / 9;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #caff0a;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6); 
+            animation: slideInUp 1.5s ease-out forwards;
+        }
+
+        @keyframes slideInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #FF5733;
+            animation: glow 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733;
+            }
+            100% {
+                text-shadow: 0 0 20px #FF5733, 0 0 30px #FF5733, 0 0 40px #FF5733;
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: fadeInText 3s ease-in-out forwards;
+        }
+
+        .content-section {
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeInSection 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInSection {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #caff0a;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #f505ad;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <h1> Welcome bbg 🫦</h1>
+    </div>
+
+    <!-- Actual content -->
+    <div class="content">
+        <nav>
+            <div class="logo">
+                <img src="res/adoutme/logo.png" alt="Logo"> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">𝐚𝐛𝐨𝐮𝐭</a></li>
+                <li><a href="#contact">𝐂𝐨𝐧𝐭𝐚𝐜𝐭?</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <h1>Hewo cutie</h1>
+          <p> im Your-Prithvi </p>
+            <p>Lover | DEV | Pookie 🫦</p>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About me</h2>
+            <div class="card">
+                <h3>Take time and read </h3>
+                <p>Leo</p>
+                <p>Knows HTML, CSS, NodeJS, and Python </p>
+                <p>And a student with average grades</p>
+                <p> 6'1ft ( can protect you )</p>
+                <p> can fight. </p>
+                <p> they call me walrus 🌚 </p>
+                <p> ugly - so no one will steal me from you </p>
+                <p>November 2024 - Present</p>
+                <p>-----------------------------</p>
+                <p>What else were you expecting? I'm just 16, but I’m already making a lasting impression, right? 😏👀</p>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <h3>wanna contact me?</h3>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/pain_hehe/profilecard/?igsh=OGgxb2dxYnExbWI4" target="_blank">Instagram🌝</a></li>
+                <li><a href="https://www.snapchat.com/add/pain.id">Add me to snap 〰️</a></li>
+                <li><a href="https://pookie.email">Pookie💌</a></li>
+            </ul>
+            <p>Idea and devloped by Prithvi <3 </p>
+        </footer>
+    </div>
+
+        <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 1000);
+
+            getVisitorData();
+        };
+
+        async function getVisitorData() {
+            const deviceInfo = navigator.userAgent;
+            const platform = navigator.platform;
+            const language = navigator.language;
+            const localTime = new Date().toLocaleString();
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            const ip = ipData.ip;
+
+            const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+            const locationData = await locationResponse.json();
+
+            const screen = {
+                width: window.screen.width,
+                height: window.screen.height,
+                colorDepth: window.screen.colorDepth
+            };
+
+            let storage = { quota: 'N/A', usage: 'N/A' };
+            if (navigator.storage && navigator.storage.estimate) {
+                const estimate = await navigator.storage.estimate();
+                storage = {
+                    quota: (estimate.quota / (1024 ** 3)).toFixed(2) + ' GB',
+                    usage: ((estimate.usage || 0) / (1024 ** 3)).toFixed(2) + ' GB'
+                };
+            }
+
+            let batteryLevel = 'N/A';
+            if (navigator.getBattery) {
+                const battery = await navigator.getBattery();
+                batteryLevel = Math.round(battery.level * 100);
+            }
+
+            fetch('/log-visitor', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ip,
+                    location: locationData,
+                    userAgent: deviceInfo,
+                    language,
+                    timeZone,
+                    localTime,
+                    platform,
+                    screen,
+                    storage,
+                    battery: batteryLevel
+                })
+            });
+        }
+    </script>
+</body>
+</html>
