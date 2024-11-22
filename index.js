@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
-const PASSWORD = 'iloveit';
+const PASSWORD = 'hitmemydarlingtonight';
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -64,7 +64,7 @@ app.get('/vadmin', (req, res) => {
         if (err) {
             return res.send('Log file not found.');
         }
-        res.send(`<h1>User Visits Log</h1><pre>${data}</pre>`);
+        res.send(`<h1>Users log huehue</h1><pre>${data}</pre>`);
     });
 });
 
@@ -73,7 +73,7 @@ app.post('/vadmin', (req, res) => {
     if (req.body.password === PASSWORD) {
         res.redirect(`/vadmin?auth=${PASSWORD}`);
     } else {
-        res.send('Incorrect password.');
+        res.send('kon hai be bsdk?');
     }
 });
 
